@@ -100,6 +100,13 @@
             <a href="#">
                 <span class="navtxt"> Exit Fullscreen </span><i class="fa  fa-desktop"></i></a>
         </li>
+        <li id="webPlayer" data-icon="false">
+            <a href="#webplayer" onclick="switchContent('webplayer'); return false;">
+                <span class="navtext">Webplayer</span><i class="fa fa-play"></i>
+            </a>
+
+        </li>
+        <!--
         <li id="navSettings" data-icon="false">
                 <a href="/Settings">
                 <span class="navtxt"> Settings </span><i class="fa fa-cog"></i></a>
@@ -108,6 +115,7 @@
             <a href="system.html">
                 <span class="navtxt">System </span><i class="fa  fa-power-off"></i></a>
         </li>
+        -->
         <li id="" data-icon="false">
             <div><!-- slider for volume -->
                 <a href="#" onclick="doMute(); return false;"><i class="fa fa-volume-up" id="mutebt"></i></a>
@@ -345,6 +353,24 @@
     </div>
 </div>
 
+<!-- webPlayer div -->
+<div data-role="content" class="pane" id="webplayerpane">
+<div>
+    <video id="html5player" src="" controls muted >
+    Try playing in VLC
+    </video>
+    <span>
+    </span>
+    <a id="streamlink" href="">Stream</a>
+    <script>
+        var streamUrl = "http://"+window.location.host.split(":")[0] + ":8800/mopidy";
+        document.getElementById("html5player").src=streamUrl;
+        document.getElementById("streamlink").href=streamUrl;
+
+    </script>
+
+</div>
+</div>
 
 <div data-role="footer" data-tap-toggle="false" data-position="fixed" id="normalFooter">
         <div id="songinfo" class="">
@@ -377,7 +403,7 @@
     <!--&nbsp; <a href="#" onclick="doShuffle(); return false" title="Shuffle"><img src="images/icons/fork_21x24.png"-->
     <!--id="shufflebt" alt=""/></a>-->
 
-    <p id="buttons"' style="float:right; margin-top: 20px; margin-right: 5px;">
+    <p id="buttons" style="float:right; margin-top: 20px; margin-right: 5px;">
             <a href="#" onclick="doRandom(); return false"><i class="fa fa-random" id="randombt"></i></a>
             &nbsp; <a href="#" onclick="doRepeat(); return false"><i class="fa fa-repeat" id="repeatbt"></i></a>
             &nbsp; <a href="#" onclick="doShuffle(); return false" title="Shuffle"><i class="fa fa-code-fork" id="shufflebt"></i></a>
